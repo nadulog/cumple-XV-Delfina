@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Invitación a los XV de Delfina">
+  <title>Delfina · Mis XV</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <section class="panel cover" aria-label="Portada de los XV de Delfina">
+      <img src="assets/portada.png" alt="Mis XV, Delfina, 3 de octubre de 2027" width="941" height="1672" fetchpriority="high">
+    </section>
+
+    <section class="panel countdown-panel" aria-label="Cuenta regresiva">
+      <div class="art-frame">
+        <img src="assets/cuenta-regresiva.png" alt="Cada vez falta menos" width="941" height="1672" loading="lazy" decoding="async">
+        <div class="countdown" aria-live="polite">
+          <div><strong data-unit="days">000</strong><span>DÍAS</span></div>
+          <div><strong data-unit="hours">00</strong><span>HORAS</span></div>
+          <div><strong data-unit="minutes">00</strong><span>MINUTOS</span></div>
+          <div><strong data-unit="seconds">00</strong><span>SEGUNDOS</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="discovery" aria-label="Descubrí la fecha">
+      <div class="kiss-stage" tabindex="0" role="button" aria-describedby="kiss-instruction">
+        <div class="intro">
+          <p>Dejale tres besos a Delfina<br>para descubrir la fecha</p>
+          <span id="kiss-instruction" class="touch-copy">TOCÁ TRES VECES LA PANTALLA</span>
+          <span class="click-copy">HACÉ TRES CLICS</span>
+          <strong class="progress" aria-live="polite">0 DE 3</strong>
+        </div>
+        <button class="skip" type="button">VER DIRECTAMENTE</button>
+      </div>
+
+      <div class="final-date" aria-hidden="true">
+        <div class="art-frame">
+          <img src="assets/fecha-hora.png" alt="3 de octubre de 2027, de 21 a 5:15 horas" width="941" height="1672" loading="lazy" decoding="async">
+          <a class="calendar-hotspot" href="#" download="mis-xv-delfina.ics" aria-label="Agregar los XV de Delfina al calendario">AGREGAR AL CALENDARIO</a>
+        </div>
+      </div>
+      <span class="flash" aria-hidden="true"></span>
+    </section>
+
+    <section class="panel location-panel" aria-label="Ubicación de la fiesta">
+      <img src="assets/como-llegar.png" alt="Gran Córdoba Eventos, Avenida Córdoba 4460" width="941" height="1672" loading="lazy" decoding="async">
+      <a class="location-hotspot" href="https://maps.app.goo.gl/zoy1RtzUi831wstG8" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar a Gran Córdoba Eventos en Google Maps">CÓMO LLEGAR</a>
+    </section>
+
+    <section class="panel dress-code-panel" aria-label="Código de vestimenta elegante">
+      <img src="assets/dress-code.png" alt="Dress code: elegante" width="1024" height="1536" loading="lazy" decoding="async">
+    </section>
+
+    <section class="panel gifts-panel" aria-label="Regalos">
+      <img src="assets/regalos.png" alt="Regalos. Tu presencia es mi mejor regalo. Si querés hacerme un presente" width="941" height="1672" loading="lazy" decoding="async">
+      <span class="mirror-reflections" aria-hidden="true"></span>
+      <button class="gift-hotspot" type="button" data-open-gifts aria-label="Ver datos para realizar un regalo">VER DATOS</button>
+    </section>
+
+    <section id="musica" class="music-panel" aria-labelledby="music-title">
+      <div class="turntable" aria-hidden="true">
+        <div class="vinyl">
+          <div class="vinyl-label">DELFINA<span></span></div>
+        </div>
+        <img class="tonearm" src="assets/musica-referencia.png" alt="" width="941" height="1672" loading="lazy" decoding="async">
+      </div>
+      <div class="music-copy">
+        <h2 id="music-title">MÚSICA</h2>
+        <p>AYUDAME A CREAR<br>LA PLAYLIST DE ESTA NOCHE</p>
+        <a class="playlist-button" href="#" target="_blank" rel="noopener noreferrer">AGREGAR CANCIÓN</a>
+      </div>
+    </section>
+
+    <section class="panel rsvp-panel" aria-label="Confirmar asistencia">
+      <img src="assets/confirmar-asistencia.png" alt="¿Venís a brillar conmigo? Confirmá tu asistencia" width="941" height="1672" loading="lazy" decoding="async">
+      <a class="rsvp-hotspot" href="https://bloomdate-rsvp.netlify.app/r/cumple-xv-delfi" target="_blank" rel="noopener noreferrer" aria-label="Confirmar asistencia a los XV de Delfina">CONFIRMAR ASISTENCIA</a>
+    </section>
+  </main>
+
+  <dialog class="gift-modal" aria-labelledby="gift-modal-title">
+    <button class="modal-close" type="button" data-close-gifts aria-label="Cerrar">&times;</button>
+    <p class="modal-eyebrow">DATOS PARA TRANSFERENCIA</p>
+    <h2 id="gift-modal-title">Mi regalo</h2>
+    <dl>
+      <div><dt>ALIAS</dt><dd id="gift-alias">delfi.dapice.xv</dd></div>
+      <div><dt>NOMBRE</dt><dd>Delfina Dapice</dd></div>
+      <div><dt>ENTIDAD</dt><dd>Mercado Pago</dd></div>
+    </dl>
+    <button class="copy-alias" type="button" data-copy-alias>COPIAR ALIAS</button>
+    <span class="copy-status" aria-live="polite"></span>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
