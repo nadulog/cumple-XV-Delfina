@@ -127,4 +127,27 @@
   };
   backgroundMusic.addEventListener("play", syncAudioButton);
   backgroundMusic.addEventListener("pause", syncAudioButton);
+
+  const invitationIntro = document.querySelector(".invitation-intro");
+  const enterInvitation = async withMusic => {
+    if (withMusic) {
+      try {
+        await backgroundMusic.play();
+      } catch {
+        // La invitación igualmente se abre si el navegador bloquea el audio.
+      }
+    } else {
+      backgroundMusic.pause();
+    }
+    invitationIntro.classList.add("is-bursting");
+    window.setTimeout(() => {
+      invitationIntro.classList.add("is-leaving");
+      document.body.classList.remove("intro-open");
+      window.setTimeout(() => {
+        invitationIntro.hidden = true;
+      }, 760);
+    }, 520);
+  };
+  document.querySelector("[data-enter-with-music]").addEventListener("click", () => enterInvitation(true));
+  document.querySelector("[data-enter-without-music]").addEventListener("click", () => enterInvitation(false));
 })();

@@ -21,9 +21,27 @@
   <meta name="twitter:description" content="Una noche soñada se acerca y me haría muy feliz compartirla con vos. Te espero para celebrar juntos ✨">
   <meta name="twitter:image" content="https://bloomdate-delfi15.netlify.app/assets/compartir-whatsapp-v2.jpg?v=2">
   <title>Delfi · Mis XV</title>
+  <link rel="preload" as="image" href="assets/intro-disco.png">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="intro-open">
+  <section class="invitation-intro" aria-labelledby="intro-title">
+    <div class="invitation-intro__backdrop" aria-hidden="true"></div>
+    <div class="invitation-intro__glow" aria-hidden="true"></div>
+    <div class="invitation-intro__burst" aria-hidden="true">
+      <img src="assets/countdown-reflections.png" alt="">
+    </div>
+    <div class="invitation-intro__content">
+      <p class="invitation-intro__eyebrow">MIS XV</p>
+      <h1 id="intro-title">Delfi</h1>
+      <div class="invitation-intro__divider" aria-hidden="true"><span></span></div>
+      <p class="invitation-intro__question">¿CÓMO QUERÉS ENTRAR?</p>
+      <div class="invitation-intro__actions">
+        <button type="button" data-enter-with-music><span aria-hidden="true">♪</span> ENTRAR CON MÚSICA</button>
+        <button type="button" data-enter-without-music>ENTRAR SIN MÚSICA</button>
+      </div>
+    </div>
+  </section>
   <main>
     <section class="panel cover" aria-label="Portada de los XV de Delfina">
       <img src="assets/portada-v2.png" alt="Mis XV de Delfi" width="941" height="1672" fetchpriority="high">
