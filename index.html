@@ -4,21 +4,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="Invitación a los XV de Delfina">
-  <title>Delfina · Mis XV</title>
+  <meta name="description" content="Una noche soñada se acerca y me haría muy feliz compartirla con vos. Te espero en mis XV ✨">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="Mis XV · Delfi">
+  <meta property="og:description" content="Una noche soñada se acerca y me haría muy feliz compartirla con vos. Te espero para celebrar juntos ✨">
+  <meta property="og:image" content="https://nadulog.github.io/cumple-XV-Delfina/assets/compartir-whatsapp.png">
+  <meta property="og:image:secure_url" content="https://nadulog.github.io/cumple-XV-Delfina/assets/compartir-whatsapp.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1983">
+  <meta property="og:image:height" content="793">
+  <meta property="og:image:alt" content="Delfi, Mis XV">
+  <meta property="og:url" content="https://nadulog.github.io/cumple-XV-Delfina/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mis XV · Delfi">
+  <meta name="twitter:description" content="Una noche soñada se acerca y me haría muy feliz compartirla con vos. Te espero para celebrar juntos ✨">
+  <meta name="twitter:image" content="https://nadulog.github.io/cumple-XV-Delfina/assets/compartir-whatsapp.png">
+  <title>Delfi · Mis XV</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main>
     <section class="panel cover" aria-label="Portada de los XV de Delfina">
-      <img src="assets/portada.png" alt="Mis XV, Delfina, 3 de octubre de 2027" width="941" height="1672" fetchpriority="high">
+      <img src="assets/portada.png" alt="Mis XV, Delfi, 3 de octubre de 2026" width="941" height="1672" fetchpriority="high">
     </section>
 
     <section class="panel countdown-panel" aria-label="Cuenta regresiva">
       <div class="art-frame">
-        <img src="assets/cuenta-regresiva.png" alt="Cada vez falta menos" width="941" height="1672" loading="lazy" decoding="async">
+        <img src="assets/cuenta-regresiva.png" alt="La cuenta regresiva ya comenzó. Faltan para mi noche soñada" width="941" height="1671" loading="lazy" decoding="async">
+        <img class="countdown-reflections" src="assets/countdown-reflections.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
         <div class="countdown" aria-live="polite">
-          <div><strong data-unit="days">000</strong><span>DÍAS</span></div>
+          <div><strong data-unit="days">0</strong><span>DÍAS</span></div>
           <div><strong data-unit="hours">00</strong><span>HORAS</span></div>
           <div><strong data-unit="minutes">00</strong><span>MINUTOS</span></div>
           <div><strong data-unit="seconds">00</strong><span>SEGUNDOS</span></div>
@@ -26,33 +42,32 @@
       </div>
     </section>
 
-    <section class="discovery" aria-label="Descubrí la fecha">
-      <div class="kiss-stage" tabindex="0" role="button" aria-describedby="kiss-instruction">
-        <div class="intro">
-          <p>Dejale tres besos a Delfina<br>para descubrir la fecha</p>
-          <span id="kiss-instruction" class="touch-copy">TOCÁ TRES VECES LA PANTALLA</span>
-          <span class="click-copy">HACÉ TRES CLICS</span>
-          <strong class="progress" aria-live="polite">0 DE 3</strong>
-        </div>
-        <button class="skip" type="button">VER DIRECTAMENTE</button>
-      </div>
-
-      <div class="final-date" aria-hidden="true">
-        <div class="art-frame">
-          <img src="assets/fecha-hora.png" alt="3 de octubre de 2027, de 21 a 5:15 horas" width="941" height="1672" loading="lazy" decoding="async">
-          <a class="calendar-hotspot" href="#" download="mis-xv-delfina.ics" aria-label="Agregar los XV de Delfina al calendario">AGREGAR AL CALENDARIO</a>
-        </div>
-      </div>
-      <span class="flash" aria-hidden="true"></span>
+    <section class="panel date-panel" aria-label="Día y hora de los XV de Delfina">
+      <img src="assets/fecha-hora.png" alt="3 de octubre de 2026, de 21 a 5:15 horas" width="941" height="1672" loading="lazy" decoding="async">
+      <a class="calendar-hotspot" href="#" download="mis-xv-delfina.ics" aria-label="Agregar los XV de Delfina al calendario">AGREGAR AL CALENDARIO</a>
     </section>
 
     <section class="panel location-panel" aria-label="Ubicación de la fiesta">
       <img src="assets/como-llegar.png" alt="Gran Córdoba Eventos, Avenida Córdoba 4460" width="941" height="1672" loading="lazy" decoding="async">
-      <a class="location-hotspot" href="https://maps.app.goo.gl/zoy1RtzUi831wstG8" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar a Gran Córdoba Eventos en Google Maps">CÓMO LLEGAR</a>
+      <button class="location-hotspot" type="button" data-open-location aria-label="Ver opciones para llegar a Gran Córdoba Eventos">CÓMO LLEGAR</button>
     </section>
 
     <section class="panel dress-code-panel" aria-label="Código de vestimenta elegante">
-      <img src="assets/dress-code.png" alt="Dress code: elegante" width="1024" height="1536" loading="lazy" decoding="async">
+      <img src="assets/dress-code.png" alt="Dress code: elegante" width="941" height="1672" loading="lazy" decoding="async">
+    </section>
+
+    <section class="gallery-panel" aria-label="Galería de fotos de Delfi">
+      <div class="polaroid-gallery">
+        <button class="polaroid polaroid--2" type="button" data-gallery-src="assets/galeria-delfi-2.png" aria-label="Ampliar foto de Delfi en las escaleras">
+          <img src="assets/galeria-delfi-2.png" alt="Delfi posando en unas escaleras" width="867" height="1301" loading="lazy" decoding="async">
+        </button>
+        <button class="polaroid polaroid--3" type="button" data-gallery-src="assets/galeria-delfi-3.png" aria-label="Ampliar foto de Delfi caminando">
+          <img src="assets/galeria-delfi-3.png" alt="Delfi caminando por la ciudad" width="771" height="1156" loading="lazy" decoding="async">
+        </button>
+        <button class="polaroid polaroid--4" type="button" data-gallery-src="assets/galeria-delfi-4.png" aria-label="Ampliar retrato de Delfi">
+          <img src="assets/galeria-delfi-4.png" alt="Retrato de perfil de Delfi" width="867" height="1301" loading="lazy" decoding="async">
+        </button>
+      </div>
     </section>
 
     <section class="panel gifts-panel" aria-label="Regalos">
@@ -64,7 +79,7 @@
     <section id="musica" class="music-panel" aria-labelledby="music-title">
       <div class="turntable" aria-hidden="true">
         <div class="vinyl">
-          <div class="vinyl-label">DELFINA<span></span></div>
+          <div class="vinyl-label">DELFI<span></span></div>
         </div>
         <img class="tonearm" src="assets/musica-referencia.png" alt="" width="941" height="1672" loading="lazy" decoding="async">
       </div>
@@ -76,10 +91,53 @@
     </section>
 
     <section class="panel rsvp-panel" aria-label="Confirmar asistencia">
-      <img src="assets/confirmar-asistencia.png" alt="¿Venís a brillar conmigo? Confirmá tu asistencia" width="941" height="1672" loading="lazy" decoding="async">
+      <img src="assets/confirmar-asistencia.png" alt="¿Venís? Confirmá tu asistencia antes del 17 de septiembre" width="941" height="1672" loading="lazy" decoding="async">
       <a class="rsvp-hotspot" href="https://bloomdate-rsvp.netlify.app/r/cumple-xv-delfi" target="_blank" rel="noopener noreferrer" aria-label="Confirmar asistencia a los XV de Delfina">CONFIRMAR ASISTENCIA</a>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__made">Hecho con amor <span aria-label="corazón">♥</span> por <strong>Bloomdate</strong></p>
+    <nav class="site-footer__socials" aria-label="Contactos de Bloomdate">
+      <a href="https://wa.me/5491140436324" target="_blank" rel="noopener noreferrer" aria-label="Escribir a Bloomdate por WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9c0 2.1.6 4.1 1.6 5.9L.1 24l6.4-1.7c1.7.9 3.6 1.4 5.6 1.4 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3Zm-8.4 18.2c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.5 4.7Zm5.4-7.3c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.7-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.9 5.1 2.2.9 3.1 1 4.2.8.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.2-.3-.4-.4-.7-.5Z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/bloomdate.invitaciones/" target="_blank" rel="noopener noreferrer" aria-label="Seguir a Bloomdate en Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 0h10a7 7 0 0 1 7 7v10a7 7 0 0 1-7 7H7a7 7 0 0 1-7-7V7a7 7 0 0 1 7-7Zm-.2 2.4a4.4 4.4 0 0 0-4.4 4.4v10.4a4.4 4.4 0 0 0 4.4 4.4h10.4a4.4 4.4 0 0 0 4.4-4.4V6.8a4.4 4.4 0 0 0-4.4-4.4H6.8ZM18.2 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 5.8a6.2 6.2 0 1 1 0 12.4 6.2 6.2 0 0 1 0-12.4Zm0 2.4a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Z"/></svg>
+      </a>
+      <a href="https://bloomdate-site.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Visitar el sitio web de Bloomdate">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm8.3 7h-3.5a18.4 18.4 0 0 0-1.6-4A9.7 9.7 0 0 1 20.3 7ZM12 2.4c1 1.2 1.9 2.7 2.4 4.6H9.6A13.7 13.7 0 0 1 12 2.4ZM2.9 14a9.9 9.9 0 0 1 0-4h4.2a16.7 16.7 0 0 0 0 4H2.9Zm.8 3h3.5c.4 1.5.9 2.9 1.6 4A9.7 9.7 0 0 1 3.7 17ZM7.2 7H3.7a9.7 9.7 0 0 1 5.1-4c-.7 1.1-1.2 2.5-1.6 4ZM12 21.6A13.7 13.7 0 0 1 9.6 17h4.8a13.7 13.7 0 0 1-2.4 4.6ZM14.9 14H9.1a14.1 14.1 0 0 1 0-4h5.8a14.1 14.1 0 0 1 0 4Zm.3 7c.7-1.1 1.2-2.5 1.6-4h3.5a9.7 9.7 0 0 1-5.1 4Zm1.7-7a16.7 16.7 0 0 0 0-4h4.2a9.9 9.9 0 0 1 0 4h-4.2Z"/></svg>
+      </a>
+    </nav>
+    <p class="site-footer__copyright"><span aria-hidden="true">©</span> Bloomdate · Todos los derechos reservados</p>
+  </footer>
+
+  <audio id="backgroundMusic" preload="metadata" loop>
+    <source src="assets/memories.mp3" type="audio/mpeg">
+  </audio>
+  <button class="audio-toggle" type="button" aria-label="Reproducir música" aria-pressed="false">
+    <span class="audio-toggle__icon" aria-hidden="true">♪</span>
+    <span class="audio-toggle__label">MÚSICA</span>
+  </button>
+
+  <dialog class="location-modal" aria-labelledby="location-modal-title">
+    <button class="location-modal__close" type="button" data-close-location aria-label="Cerrar">&times;</button>
+    <p class="location-modal__eyebrow">¿CÓMO QUERÉS LLEGAR?</p>
+    <h2 id="location-modal-title">Gran Córdoba Eventos</h2>
+    <p class="location-modal__address">Av. Córdoba 4460</p>
+    <div class="location-modal__divider" aria-hidden="true"></div>
+    <div class="location-modal__actions">
+      <a href="https://maps.app.goo.gl/zoy1RtzUi831wstG8" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span>ABRIR EN GOOGLE MAPS</a>
+      <a href="https://www.waze.com/ul?q=Av.%20C%C3%B3rdoba%204460%2C%20Buenos%20Aires&navigate=yes" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◉</span>ABRIR EN WAZE</a>
+      <button type="button" data-copy-address><span aria-hidden="true">⎘</span>COPIAR DIRECCIÓN</button>
+    </div>
+    <span class="location-copy-status" aria-live="polite"></span>
+  </dialog>
+
+  <dialog class="gallery-lightbox" aria-label="Foto ampliada">
+    <button type="button" data-close-gallery aria-label="Cerrar foto ampliada">&times;</button>
+    <img src="" alt="Foto ampliada de Delfi">
+  </dialog>
 
   <dialog class="gift-modal" aria-labelledby="gift-modal-title">
     <button class="modal-close" type="button" data-close-gifts aria-label="Cerrar">&times;</button>

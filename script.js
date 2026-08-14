@@ -1,7 +1,7 @@
 (() => {
-  const EVENT_START = "2027-10-03T21:00:00-03:00";
-  const EVENT_END = "2027-10-04T05:15:00-03:00";
-  const PLAYLIST_URL = "PEGAR_AQUI_EL_LINK_DE_LA_PLAYLIST";
+  const EVENT_START = "2026-10-03T21:00:00-03:00";
+  const EVENT_END = "2026-10-04T05:15:00-03:00";
+  const PLAYLIST_URL = "https://open.spotify.com/playlist/7D5bW3zyGkPQBJpisRIDAE?si=ZdWH-vI5RwOUy9JAohA8Hg&utm_source=whatsapp&pt=bb57b29fd561022027d12c96cea17b64&pi=n_qZZ8vhT0OmK";
   const target = new Date(EVENT_START).getTime();
   const units = Object.fromEntries([...document.querySelectorAll("[data-unit]")].map(node => [node.dataset.unit, node]));
 
@@ -9,7 +9,7 @@
     const total = Math.max(0, target - Date.now());
     const seconds = Math.floor(total / 1000);
     const values = {
-      days: String(Math.floor(seconds / 86400)).padStart(3, "0"),
+      days: String(Math.floor(seconds / 86400)),
       hours: String(Math.floor(seconds / 3600) % 24).padStart(2, "0"),
       minutes: String(Math.floor(seconds / 60) % 60).padStart(2, "0"),
       seconds: String(seconds % 60).padStart(2, "0")
@@ -25,56 +25,58 @@
   tick();
   setInterval(tick, 1000);
 
-  const discovery = document.querySelector(".discovery");
-  const stage = document.querySelector(".kiss-stage");
-  const progress = document.querySelector(".progress");
-  const skip = document.querySelector(".skip");
-  const kissAssets = ["assets/beso-blanco.png", "assets/beso-azul.png", "assets/beso-plateado.png"];
-  let count = 0;
-  let isRevealed = false;
-
-  function reveal() {
-    if (isRevealed) return;
-    isRevealed = true;
-    progress.textContent = "3 DE 3";
-    discovery.querySelectorAll(".kiss").forEach((kiss, i) => {
-      kiss.style.transition = `opacity .2s ${i * .04}s, transform .28s ${i * .04}s`;
-      kiss.style.opacity = "0";
-      kiss.style.transform += ` scale(.5)`;
-    });
-    discovery.classList.add("revealed");
-    stage.setAttribute("aria-hidden", "true");
-    document.querySelector(".final-date").setAttribute("aria-hidden", "false");
+  const countdownPanel = document.querySelector(".countdown-panel");
+  if ("IntersectionObserver" in window) {
+    const countdownObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        countdownPanel.classList.add("is-visible");
+        countdownObserver.disconnect();
+      });
+    }, { threshold: .32 });
+    countdownObserver.observe(countdownPanel);
+  } else {
+    countdownPanel.classList.add("is-visible");
   }
-
-  function placeKiss(event) {
-    if (isRevealed || count === 3 || event.target.closest(".skip")) return;
-    const rect = stage.getBoundingClientRect();
-    const kiss = document.createElement("img");
-    kiss.className = "kiss";
-    kiss.src = kissAssets[count];
-    kiss.alt = "";
-    kiss.draggable = false;
-    kiss.style.left = `${event.clientX - rect.left}px`;
-    kiss.style.top = `${event.clientY - rect.top}px`;
-    kiss.style.setProperty("--angle", `${[-8, 7, -3][count]}deg`);
-    stage.appendChild(kiss);
-    count += 1;
-    progress.textContent = `${count} DE 3`;
-    if (count === 3) setTimeout(reveal, 320);
-  }
-  stage.addEventListener("pointerup", placeKiss);
-  stage.addEventListener("keydown", event => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-    event.preventDefault();
-    const rect = stage.getBoundingClientRect();
-    placeKiss({ clientX: rect.left + rect.width * (.35 + count * .15), clientY: rect.top + rect.height * .68, target: stage });
-  });
-  skip.addEventListener("pointerup", event => { event.stopPropagation(); reveal(); });
 
   const utc = iso => new Date(iso).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
-  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Delfina XV//ES", "BEGIN:VEVENT", "UID:delfina-xv-20271003@invitacion", `DTSTART:${utc(EVENT_START)}`, `DTEND:${utc(EVENT_END)}`, "SUMMARY:Mis XV de Delfina", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Delfina XV//ES", "BEGIN:VEVENT", "UID:delfina-xv-20261003@invitacion", `DTSTART:${utc(EVENT_START)}`, `DTEND:${utc(EVENT_END)}`, "SUMMARY:Mis XV de Delfina", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
   document.querySelector(".calendar-hotspot").href = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
+
+  const locationModal = document.querySelector(".location-modal");
+  const locationCopyStatus = document.querySelector(".location-copy-status");
+  document.querySelector("[data-open-location]").addEventListener("click", () => locationModal.showModal());
+  document.querySelector("[data-close-location]").addEventListener("click", () => locationModal.close());
+  locationModal.addEventListener("click", event => {
+    if (event.target === locationModal) locationModal.close();
+  });
+  document.querySelector("[data-copy-address]").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText("Av. Córdoba 4460");
+      locationCopyStatus.textContent = "DIRECCIÓN COPIADA";
+    } catch {
+      locationCopyStatus.textContent = "AV. CÓRDOBA 4460";
+    }
+  });
+
+  const galleryPanel = document.querySelector(".gallery-panel");
+  const galleryLightbox = document.querySelector(".gallery-lightbox");
+  const galleryLightboxImage = galleryLightbox.querySelector("img");
+  const galleryObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => galleryPanel.classList.toggle("is-visible", entry.isIntersecting));
+  }, { threshold: .22 });
+  galleryObserver.observe(galleryPanel);
+  document.querySelectorAll("[data-gallery-src]").forEach(photo => {
+    photo.addEventListener("click", () => {
+      galleryLightboxImage.src = photo.dataset.gallerySrc;
+      galleryLightboxImage.alt = photo.querySelector("img").alt;
+      galleryLightbox.showModal();
+    });
+  });
+  document.querySelector("[data-close-gallery]").addEventListener("click", () => galleryLightbox.close());
+  galleryLightbox.addEventListener("click", event => {
+    if (event.target === galleryLightbox) galleryLightbox.close();
+  });
 
   const giftModal = document.querySelector(".gift-modal");
   const openGifts = document.querySelector("[data-open-gifts]");
@@ -102,4 +104,27 @@
     entries.forEach(entry => musicPanel.classList.toggle("is-visible", entry.isIntersecting));
   }, { threshold: 0.05 });
   musicObserver.observe(musicPanel);
+
+  const backgroundMusic = document.querySelector("#backgroundMusic");
+  const audioToggle = document.querySelector(".audio-toggle");
+  audioToggle.addEventListener("click", async () => {
+    if (backgroundMusic.paused) {
+      try {
+        await backgroundMusic.play();
+      } catch {
+        return;
+      }
+    } else {
+      backgroundMusic.pause();
+    }
+  });
+  const syncAudioButton = () => {
+    const isPlaying = !backgroundMusic.paused;
+    audioToggle.classList.toggle("is-playing", isPlaying);
+    audioToggle.setAttribute("aria-pressed", String(isPlaying));
+    audioToggle.setAttribute("aria-label", isPlaying ? "Pausar música" : "Reproducir música");
+    audioToggle.querySelector(".audio-toggle__icon").textContent = isPlaying ? "Ⅱ" : "♪";
+  };
+  backgroundMusic.addEventListener("play", syncAudioButton);
+  backgroundMusic.addEventListener("pause", syncAudioButton);
 })();
