@@ -31,7 +31,7 @@ button, a { font: inherit; -webkit-tap-highlight-color: transparent; }
 main { width: min(100%, 942px); margin: 0 auto; background: #000; box-shadow: 0 0 38px #000; overflow-anchor: none; }
 .panel, .art-frame, .discovery { position: relative; line-height: 0; }
 .panel img, .art-frame > img { display: block; width: 100%; height: auto; }
-.cover { animation: coverIn 1s ease both; }
+.cover { overflow: hidden; background: #000; animation: coverIn 1s ease both; }
 .countdown-panel { background: #000; overflow: hidden; }
 .countdown-panel::after { content: ""; position: absolute; z-index: 2; inset: 0; background: linear-gradient(108deg, transparent 15%, rgb(255 255 255 / .08) 29%, transparent 43% 67%, rgb(8 66 255 / .1) 78%, transparent 89%); mix-blend-mode: screen; opacity: .7; animation: countdownAtmosphere 8s ease-in-out infinite alternate; pointer-events: none; }
 .countdown-reflections { position: absolute; z-index: 2; inset: -12%; width: 124% !important; height: 124% !important; object-fit: cover; opacity: .28; mix-blend-mode: screen; filter: brightness(1.5) contrast(1.22) saturate(1.25); pointer-events: none; animation: discoReflectionsDrift 9s ease-in-out infinite alternate; }
